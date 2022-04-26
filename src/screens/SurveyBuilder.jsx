@@ -1,4 +1,6 @@
+import ActionCard from 'components/cards/ActionCard';
 import MessageCard from 'components/cards/MessageCard';
+import SelectionCard from 'components/cards/SelectionCard';
 import Editor from 'components/Editor';
 import Footer from 'components/Footer';
 import React, { Component } from 'react';
@@ -171,17 +173,50 @@ class SurveyBuilder extends Component {
             )
         }
 
-        const cardsArray = this.state.cards.map(card => (
-            <MessageCard
-                {...card}
-                index={this.state.cards.indexOf(card)}
-                number={this.state.cards.indexOf(card)+1}
-                key={card.uid}
-                steps={getVisibleCards(this.state.cards.indexOf(card))}
-                onCreate={addCard}
-                onUpdate={updateCard}
-                onDelete={deleteCard} />
-        ));
+        const cardsArray = this.state.cards.map(card => {
+            switch(card.step_type){
+                case 'selection':
+                    return (
+                        <SelectionCard
+                            {...card}
+                            index={this.state.cards.indexOf(card)}
+                            number={this.state.cards.indexOf(card)+1}
+                            key={card.uid}
+                            steps={getVisibleCards(this.state.cards.indexOf(card))}
+                            onCreate={addCard}
+                            onUpdate={updateCard}
+                            onDelete={deleteCard} 
+                        />
+                    )
+                case 'action':
+                    return (
+                        <ActionCard
+                            {...card}
+                            index={this.state.cards.indexOf(card)}
+                            number={this.state.cards.indexOf(card)+1}
+                            key={card.uid}
+                            steps={getVisibleCards(this.state.cards.indexOf(card))}
+                            onCreate={addCard}
+                            onUpdate={updateCard}
+                            onDelete={deleteCard} 
+                        />
+                    )
+                default:
+                    return (
+                        <MessageCard
+                            {...card}
+                            index={this.state.cards.indexOf(card)}
+                            number={this.state.cards.indexOf(card)+1}
+                            key={card.uid}
+                            steps={getVisibleCards(this.state.cards.indexOf(card))}
+                            onCreate={addCard}
+                            onUpdate={updateCard}
+                            onDelete={deleteCard} 
+                        />
+                    )
+            }
+            
+        });
 
         const getSurveyHref = () => {
             const dbConfig = {

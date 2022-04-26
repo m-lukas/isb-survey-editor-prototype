@@ -8,13 +8,6 @@ import "react-toggle/style.css"
 import BaseCard from './BaseCard';
 
 class MessageCard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-
-    }
-
     render() {
         const toggleSection = (section) => {
             let activeSections = {...this.props.active_sections};

@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "inter-ui": "^3.19.3",
     "react": "^18.0.0",
+    "react-click-away-listener": "^2.2.1",
     "react-dom": "^18.0.0",
     "react-scripts": "5.0.1",
     "react-search-box": "^2.2.1",

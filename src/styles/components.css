@@ -2,6 +2,7 @@
     --dark-orange: #EB9310;
     --bright-orange: #FFA51F;
     --white: #FFFFFF;
+    --grey-white: #FAFAFA;
     --grey: #E7E7E7;
     --light-orange: #EFD8B6;
     --medium-dark: #242424;
@@ -67,7 +68,9 @@
     align-items: center;
     justify-content: center;
     border-radius: var(--border-radius);
+    border: none;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
 }
 
 .elevatedbutton-text {
@@ -87,6 +90,72 @@
     width: 300px;
     height: 100%;
     box-sizing: border-box;
+    padding: 30px 25px 30px 25px;
+}
+
+.sidebar-body{
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.filename-label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--black);
+}
+
+.sidebar-input {
+    height: fit-content;
+    resize: none;
+    width: 100%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 28px;
+    word-wrap: break-word;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.database-section {
+    margin-top: 35px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar-label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: var(--black);
+}
+
+.database-box {
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    background: var(--grey-white);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-sizing: border-box;
+    margin-top: 20px;
 }
 
 .footer-container{
@@ -281,7 +350,7 @@
 .card-message {
     height: fit-content;
     resize: none;
-    width: 560px;
+    width: 100%;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 800;
@@ -300,6 +369,32 @@
     font-size: 20px;
     line-height: 28px;
     word-wrap: break-word;
+}
+
+.card-regular-input {
+    height: fit-content;
+    resize: none;
+    width: 560px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 28px;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.card-compare {
+    height: fit-content;
+    resize: none;
+    width: 200px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 28px;
+    word-wrap: break-word;
+    text-align: center;
 }
 
 .card-add-buttons {
@@ -351,9 +446,29 @@
     line-height: 15px;
 }
 
+.card-section-grid {
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: auto 50px;
+    grid-template-rows: auto;
+}
+
 .card-section-body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    gap: 15px;
+}
+
+.card-section-remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-section-remove img {
+    width: 32px;
+    height: 32px;
 }

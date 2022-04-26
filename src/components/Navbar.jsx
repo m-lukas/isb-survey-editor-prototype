@@ -7,9 +7,13 @@ class Navbar extends Component {
             <div className="navbar">
                 <p className="navbar-title">Impact-Survey-Bot</p>
                 <div className='navbar-button-section'>
-                    <ElevatedButton text="Translations" />
+                    <ElevatedButton text="Translations"/>
                     <div className='width-25'></div>
-                    <ElevatedButton text="Save" />
+                    <ElevatedButton 
+                        text="Save"
+                        href={this.props.saveHref}
+                        filename={this.props.saveFilename}
+                    />
                 </div>
             </div>
         );

@@ -1,4 +1,4 @@
-import Card from 'components/cards/MessageCard';
+import MessageCard from 'components/cards/MessageCard';
 import Editor from 'components/Editor';
 import Footer from 'components/Footer';
 import React, { Component } from 'react';
@@ -17,38 +17,108 @@ class SurveyBuilder extends Component {
                     step_type: "message",
                     message: "What's your name?",
                     help: "First + Lastname",
+                    image: "",
                     input_type: "text-100",
-                    required: true
+                    condition_value: '',
+                    condition_step: '',
+                    condition_operator: '',
+                    compare_value: '',
+                    compare_step: '',
+                    compare_operator: '',
+                    db_column: '',
+                    required: true,
+                    active_sections: {
+                        message: true,
+                        help: false,
+                        image: false,
+                        compare: false,
+                        condition: false,
+                        database: false
+                    }
                 },
                 {
                     uid: uuid(),
                     step_type: "message",
                     message: "Please state the reason why you are here?",
                     help: "Please be specific.",
+                    image: "",
                     input_type: "text-long",
-                    required: true
+                    condition_value: '',
+                    condition_step: '',
+                    condition_operator: '',
+                    compare_value: '',
+                    compare_step: '',
+                    compare_operator: '',
+                    db_column: '',
+                    required: true,
+                    active_sections: {
+                        message: true,
+                        help: false,
+                        image: false,
+                        compare: false,
+                        condition: false,
+                        database: false
+                    }
                 },
                 {
                     uid: uuid(),
                     step_type: "message",
                     message: "How old are you?",
                     help: "Just your regulare age.",
+                    image: "",
                     input_type: "integer",
-                    required: false
+                    condition_value: '',
+                    condition_step: '',
+                    condition_operator: '',
+                    compare_value: '',
+                    compare_step: '',
+                    compare_operator: '',
+                    db_column: '',
+                    required: false,
+                    active_sections: {
+                        message: true,
+                        help: false,
+                        image: false,
+                        compare: false,
+                        condition: false,
+                        database: false
+                    }
                 }
-            ]
+            ],
+            config: {
+                filename: '',
+                db_enabled: true,
+                db_table: '',
+                db_id_column: ''
+            }
         }
     };
 
     render() {
-        const addCard = (idx, data) => {
+        const addCard = (idx, type, data) => {
             let card = {
                 uid: uuid(),
-                step_type: "message",
+                step_type: type,
                 message: "",
                 help: "",
+                image: "",
                 input_type: "",
-                required: true
+                condition_value: '',
+                condition_step: '',
+                condition_operator: '',
+                compare_value: '',
+                compare_step: '',
+                compare_operator: '',
+                db_column: '',
+                required: true,
+                active_sections: {
+                    message: true,
+                    help: false,
+                    image: false,
+                    compare: false,
+                    condition: false,
+                    database: false
+                }
             }
 
             for(const key in data) {
@@ -80,22 +150,91 @@ class SurveyBuilder extends Component {
             this.setState({cards});
         }
 
+        const updateConfig = (key, value) => {
+            let config = {...this.state.config};
+            config[key] = value;
+            this.setState((state) => ({
+                ...state,
+                config: config
+            }));
+        }
+
+        const getVisibleCards = (idx) => {
+            return this.state.cards.map(card => {
+                return {
+                    "uid": card.uid,
+                    "index": this.state.cards.indexOf(card),
+                    "number": this.state.cards.indexOf(card)+1
+                }
+            }).filter(card => 
+                card.index < idx
+            )
+        }
+
         const cardsArray = this.state.cards.map(card => (
-            <Card
+            <MessageCard
                 {...card}
                 index={this.state.cards.indexOf(card)}
                 number={this.state.cards.indexOf(card)+1}
                 key={card.uid}
+                steps={getVisibleCards(this.state.cards.indexOf(card))}
                 onCreate={addCard}
                 onUpdate={updateCard}
                 onDelete={deleteCard} />
         ));
 
+        const getSurveyHref = () => {
+            const dbConfig = {
+                "create-db-entry": this.state.config.db_enabled,
+                "table": this.state.config.db_table,
+                "id-column": this.state.config.db_id_column
+            }
+
+            const stepArray = this.state.cards.map(card => {
+                const index = this.state.cards.indexOf(card);
+                const number = index+1;
+                const hasSuccessor = (this.state.cards.length > number);
+                let successorUid = null;
+
+                if(hasSuccessor){
+                    successorUid = this.state.cards[index+1].uid;
+                }
+
+                let stepObj = {
+                    "id": card.uid,
+                    "type": card.step_type,
+                    "skip": {
+                        "enabled": !card.required,
+                        "jump-to": (hasSuccessor ? successorUid : null)
+                    },
+                    "message": card.message,
+                    "input_type": card.input_type,
+                    "successor": (hasSuccessor ? successorUid : null)
+                }
+
+                if(card.active_sections.help) stepObj["help"] = card.help;
+                if(card.active_sections.database) stepObj["db-column"] = card.db_column;
+
+                // compare + condition
+                return stepObj
+            });
+
+            const surveyObj = {
+                "db": dbConfig,
+                "steps": stepArray
+            }
+
+            return `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(surveyObj))}`
+        }
+
         return (
             <div className='surveybuilder-layout'>
-                <Navbar />
+                <Navbar 
+                    saveHref={() => getSurveyHref()}
+                    saveFilename={this.state.config.filename}
+                />
                 <div className='sidebar-layout'>
-                    <Sidebar />
+                    <Sidebar onUpdate={updateConfig} {...this.state.config} />
                     <Footer />
                 </div>
                 <Editor>

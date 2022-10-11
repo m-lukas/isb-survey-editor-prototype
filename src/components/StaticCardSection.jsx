@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import removeIcon from '../assets/remove.png'
-
 class StaticCardSection extends Component {
     render() {
         return (

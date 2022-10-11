@@ -1,9 +1,6 @@
 import CardActions from 'components/CardActions';
 import CardInfo from 'components/CardInfo';
-import CardSection from 'components/CardSection';
 import PopupMenu from 'components/PopupMenu';
-import StaticCardSection from 'components/StaticCardSection';
-import SuggestionButton from 'components/SuggestionButton';
 import React, { Component } from 'react';
 
 import "react-toggle/style.css"

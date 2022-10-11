@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './styles/App.css';
 import SurveyBuilder from './screens/SurveyBuilder.jsx'
 import React from 'react';

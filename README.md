@@ -1,6 +1,10 @@
 # Prototype: ISB Survey-Editor
 
-## Usage
+## Demo
+
+https://isb-survey-editor-prototype.netlify.app/
+
+## Installation
 
 ```sh
 npm install

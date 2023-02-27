@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Toggle from 'react-toggle'
+import TranslationKeyPrefix from './TranslationKeyPrefix'
 
 class Sidebar extends Component {
     render() {
@@ -19,6 +20,7 @@ class Sidebar extends Component {
                             }
                         />
                     </div>
+                    <TranslationKeyPrefix />
                     <div className='database-section'>
                         <p className='sidebar-label'>Database Enabled:</p>
                         <Toggle

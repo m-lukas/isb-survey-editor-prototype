@@ -7,7 +7,6 @@ class Navbar extends Component {
             <div className="navbar">
                 <p className="navbar-title">Impact-Survey-Bot</p>
                 <div className='navbar-button-section'>
-                    <ElevatedButton text="Translations"/>
                     <div className='width-25'></div>
                     <ElevatedButton 
                         text="Save"

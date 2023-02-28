@@ -1,22 +1,18 @@
-import React, {Component} from "react";
+import React from "react";
 import "./TextInput.css"
- 
 
-class TextInput extends Component {
-    render() {
-        return(
-            <div className="text-input-section">
-                <p className="text-input-label"> {this.props.label} </p>
+export default function TextInput(props) {
+    return(
+        <div className="text-input-section">
+                <p className="text-input-label"> {props.label} </p>
                 <input 
                     className="text-input"
                     type="text" 
-                    value={this.props.value}
+                    value={props.value}
                     onChange={
-                        (e) => this.props.onUpdate(this.props.identifier, e.target.value)
+                        (e) => props.onUpdate(props.identifier, e.target.value)
                     }
                 />
             </div>
-        )
-    }
+    )
 }
-export default TextInput;

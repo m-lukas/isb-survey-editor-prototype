@@ -9,18 +9,8 @@ class Sidebar extends Component {
         return (
             <div className='sidebar-container'>
                 <div className='sidebar-body'>
-                    <div className='sidebar-input-section'>
-                        <p className='filename-label'>Filename:</p>
-                        <input
-                            className='sidebar-input'
-                            type="text"
-                            value={this.props.filename}
-                            onChange={
-                                (e) => this.props.onUpdate("filename", e.target.value)
-                            }
-                        />
-                    </div>
-                    <TextInput label="Translation Key Prefix" identifier="tkprefix"/>
+                    <TextInput label='Filename:' identifier='filename' onUpdate={this.props.onUpdate}/>
+                    <TextInput label="Translation Key Prefix:" identifier="tkprefix" onUpdate={this.props.onUpdate}/>
                     <div className='database-section'>
                         <p className='sidebar-label'>Database Enabled:</p>
                         <Toggle

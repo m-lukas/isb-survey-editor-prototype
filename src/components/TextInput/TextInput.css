@@ -5,7 +5,8 @@ sidebar-label */
 .text-input-section {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 8px;
+    margin: 4px 0;
 }
 
 .text-input {

@@ -89,6 +89,7 @@ class SurveyBuilder extends Component {
             ],
             config: {
                 filename: '',
+                tkprefix: '',
                 db_enabled: true,
                 db_table: '',
                 db_id_column: ''

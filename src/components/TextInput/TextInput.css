@@ -6,15 +6,9 @@
 }
 
 .text-input {
-    height: fit-content;
-    resize: none;
     width: 100%;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
     font-size: 15px;
     line-height: 28px;
-    word-wrap: break-word;
     text-align: center;
     box-sizing: border-box;
 }

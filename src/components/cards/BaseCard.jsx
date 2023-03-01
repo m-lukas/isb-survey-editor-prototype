@@ -1,32 +1,28 @@
 import CardHeader from './sections/CardHeader';
 import AddCardButton from 'components/AddCardButton';
-import React, { Component } from 'react';
+import React from 'react';
 
 import "react-toggle/style.css"
 import "./BaseCard.css"
 
-class BaseCard extends Component {
-    render() {
-        return (
-            <div className='card-wrapper'>
-                <div className='card-container'>
-                    <CardHeader 
-                        number={this.props.number}
-                        header_selection={this.props.header_selection}
-                        step_type={this.props.step_type}
-                        uid={this.props.uid}
-                        onCopy={() => this.props.onCopy()}
-                        onDelete={() => this.props.onDelete()}
-                        onRequiredToggle={(e) => this.props.onRequiredToggle}
-                    />
-                    <div className='card-body'>
-                        {this.props.children}
-                    </div>
+export default function BaseCard(props) {
+    return (
+        <div className='card-wrapper'>
+            <div className='card-container'>
+                <CardHeader
+                    number={props.number}
+                    header_selection={props.header_selection}
+                    step_type={props.step_type}
+                    uid={props.uid}
+                    onCopy={() => props.onCopy()}
+                    onDelete={() => props.onDelete()}
+                    onRequiredToggle={(e) => props.onRequiredToggle}
+                />
+                <div className='card-body'>
+                    {props.children}
                 </div>
-                <AddCardButton onCreate={this.props.onCreate} />
             </div>
-        );
-    }
+            <AddCardButton onCreate={props.onCreate} />
+        </div>
+    )
 }
-
-export default BaseCard;

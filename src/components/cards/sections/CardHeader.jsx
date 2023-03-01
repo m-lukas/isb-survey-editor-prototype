@@ -1,5 +1,5 @@
 import React from "react";
-import CardInfo from "components/CardInfo";
+import CardInfo from "components/cards/sections/CardInfo";
 import CardActions from "components/CardActions";
 
 export default function CardHeader(props) {

@@ -1,6 +1,7 @@
 import CardSection from 'components/CardSection';
 import StaticCardSection from 'components/StaticCardSection';
 import SuggestionButton from 'components/SuggestionButton';
+import InputTypePicker from './sections/InputTypePicker';
 import React, { Component } from 'react';
 
 import "react-toggle/style.css"
@@ -14,21 +15,6 @@ class MessageCard extends Component {
             activeSections[section] = !activeSections[section];
 
             this.props.onUpdate(this.props.index, "active_sections", activeSections)
-        }
-
-        const inputTypes = {
-            "text-100": "Text-100",
-            "text-long": "Text-Long",
-            "integer": "Integer",
-            "decimal": "Decimal",
-            "date": "Date",
-            "location": "Location",
-            "picture": "Picture",
-            "time": "Time (both)",
-            "time12": "Time (12:00pm)",
-            "time24": "Time (24:00)",
-            "url": "Url",
-            "phone_number": "Phonenumber"
         }
 
         const compareOperators = {
@@ -49,39 +35,34 @@ class MessageCard extends Component {
             "has-selected": "selected",
             "has-group": "has group"
         }
+        const getCopy = () => {
+            return(
+                {
+                    message: this.props.message,
+                    help: this.props.help,
+                    image: this.props.image,
+                    input_type: this.props.input_type,
+                    condition_value: this.props.condition_value,
+                    condition_step: this.props.condition_step,
+                    condition_operator: this.props.condition_operator,
+                    compare_value: this.props.compare_value,
+                    compare_step: this.props.compare_step,
+                    compare_operator: this.props.compare_operator,
+                    db_column: this.props.db_column,
+                    required: this.props.required,
+                    active_sections: this.props.active_sections
+                }
+            )
+        }
 
         return (
             <BaseCard
                 {...this.props}
-                header_selection={(
-                    <select 
-                        className='action-type-selection'
-                        value={this.props.input_type}
-                        onChange={(e) => this.props.onUpdate(this.props.index, "input_type", e.target.value)}
-                    >
-                        {Object.entries(inputTypes).map(([value, display]) => (
-                            <option value={value}>{display}</option>
-                        ))}
-                    </select>
-                )}
+                header_selection={(<InputTypePicker />)}
                 onCopy={() => this.props.onCreate(
                     this.props.index,
                     this.props.step_type,
-                    {
-                        message: this.props.message,
-                        help: this.props.help,
-                        image: this.props.image,
-                        input_type: this.props.input_type,
-                        condition_value: this.props.condition_value,
-                        condition_step: this.props.condition_step,
-                        condition_operator: this.props.condition_operator,
-                        compare_value: this.props.compare_value,
-                        compare_step: this.props.compare_step,
-                        compare_operator: this.props.compare_operator,
-                        db_column: this.props.db_column,
-                        required: this.props.required,
-                        active_sections: this.props.active_sections
-                    }
+                    getCopy()
                 )}
                 onDelete={() => this.props.onDelete(this.props.uid)}
                 onRequiredToggle={(e) => this.props.onUpdate(this.props.index, "required", e.target.checked)}

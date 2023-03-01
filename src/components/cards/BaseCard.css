@@ -68,3 +68,15 @@ CARD HEADER
     line-height: 24px;
     border-radius: 20px 0px 0px 0px;
 }
+
+/* 
+INPUT TYPE PICKER
+==================
+*/
+
+.action-type-selection {
+    height: 27px;
+    width: 140px;
+    text-align-last: center;
+    color: var(--orange-black);
+}

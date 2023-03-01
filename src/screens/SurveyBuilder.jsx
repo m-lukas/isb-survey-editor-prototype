@@ -243,7 +243,7 @@ class SurveyBuilder extends Component {
                         "enabled": !card.required,
                         "jump-to": (hasSuccessor ? successorUid : null)
                     },
-                    "message": card.message,
+                    "message": this.state.config.tkprefix + card.message,
                     "input_type": card.input_type,
                     "successor": (hasSuccessor ? successorUid : null)
                 }

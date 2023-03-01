@@ -5,7 +5,7 @@ import Editor from 'components/Editor';
 import Footer from 'components/Footer';
 import React, { Component } from 'react';
 import uuid from 'react-uuid'
-
+import AddCardButton from 'components/AddCardButton';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 
@@ -273,6 +273,7 @@ class SurveyBuilder extends Component {
                     <Footer />
                 </div>
                 <Editor>
+                    <AddCardButton onCreate={addCard}/>
                     {cardsArray}
                 </Editor>
             </div>

@@ -223,13 +223,6 @@
     gap: 27px;
 }
 
-.action-type-selection {
-    height: 27px;
-    width: 140px;
-    text-align-last: center;
-    color: var(--orange-black);
-}
-
 .card-info-grid {
     height: fit-content;
     display: grid;

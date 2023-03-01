@@ -3,6 +3,7 @@ import AddCardButton from 'components/AddCardButton';
 import React, { Component } from 'react';
 
 import "react-toggle/style.css"
+import "./BaseCard.css"
 
 class BaseCard extends Component {
     render() {

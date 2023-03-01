@@ -1,5 +1,4 @@
-import CardActions from 'components/CardActions';
-import CardInfo from 'components/CardInfo';
+import CardHeader from './sections/CardHeader';
 import PopupMenu from 'components/PopupMenu';
 import React, { Component } from 'react';
 
@@ -12,22 +11,15 @@ class BaseCard extends Component {
         return (
             <div className='card-wrapper'>
                 <div className='card-container'>
-                    <div className='card-header'>
-                        <div className='card-number'>
-                            {this.props.number}
-                        </div>
-                        <div className='card-header-actions'>
-                            <div className='card-info'>
-                                {this.props.header_selection ? this.props.header_selection : ''}
-                                <CardInfo step_type={this.props.step_type} uid={this.props.uid}/>
-                            </div>
-                            <CardActions
-                                onCopy={() => this.props.onCopy()}
-                                onDelete={() => this.props.onDelete()}
-                                onRequiredToggle={(e) => this.props.onRequiredToggle(e)}
-                            />
-                        </div>
-                    </div>
+                    <CardHeader 
+                        number={this.props.number}
+                        header_selection={this.props.header_selection}
+                        step_type={this.props.step_type}
+                        uid={this.props.uid}
+                        onCopy={() => this.props.onCopy()}
+                        onDelete={() => this.props.onDelete()}
+                        onRequiredToggle={(e) => this.props.onRequiredToggle}
+                    />
                     <div className='card-body'>
                         {this.props.children}
                     </div>

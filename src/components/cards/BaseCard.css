@@ -132,12 +132,11 @@ OPTIONAL SECTION
     line-height: 15px;
 }
 
-.opt-section-grid {
+.opt-section-flex {
     width: 100%;
     height: fit-content;
-    display: grid;
-    grid-template-columns: auto 50px;
-    grid-template-rows: auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 .opt-section-body {
@@ -146,6 +145,7 @@ OPTIONAL SECTION
     flex-wrap: wrap;
     align-items: center;
     gap: 15px;
+    width: 90%;
 }
 
 .opt-section-remove {

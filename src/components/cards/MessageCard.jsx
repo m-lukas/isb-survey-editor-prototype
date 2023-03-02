@@ -2,6 +2,7 @@ import CardSection from 'components/CardSection';
 import StaticCardSection from 'components/StaticCardSection';
 import SuggestionButton from 'components/SuggestionButton';
 import InputTypePicker from './sections/InputTypePicker';
+import TextInputTranslate from './sections/TextInputTranslate';
 import React, { Component } from 'react';
 
 import "react-toggle/style.css"
@@ -69,7 +70,7 @@ class MessageCard extends Component {
                 onCreate={(type) => this.props.onCreate(this.props.index, type, {})}
             >
                 <div className='card-items'>
-                    <StaticCardSection label="Message:">
+                    {/* <StaticCardSection label="Message:">
                         <textarea
                             className='card-message'
                             rows={2}
@@ -78,7 +79,8 @@ class MessageCard extends Component {
                                 (e) => this.props.onUpdate(this.props.index, "message", e.target.value)
                             }
                         />
-                    </StaticCardSection>
+                    </StaticCardSection> */}
+                    <TextInputTranslate />
                     <CardSection 
                         label="Help:"
                         enabled={this.props.active_sections.help}

@@ -4,13 +4,21 @@ import TextInput from './TextInput/TextInput';
 
 class Sidebar extends Component {
     render() {
+        const updateFilename = (value) => {
+            this.props.onUpdate('filename', value)
+        }
+
+        const updateTKPrefix = (value) => {
+            this.props.onUpdate('tkprefix', value)
+        }
+
         let databaseBoxClass = (this.props.db_enabled ? 'database-box' : 'hidden');
 
         return (
             <div className='sidebar-container'>
                 <div className='sidebar-body'>
-                    <TextInput label='Filename:' identifier='filename' onUpdate={this.props.onUpdate}/>
-                    <TextInput label="Translation Key Prefix:" identifier="tkprefix" onUpdate={this.props.onUpdate}/>
+                    <TextInput label='Filename:' onUpdate={updateFilename}/>
+                    <TextInput label="Translation Key Prefix:" onUpdate={updateTKPrefix}/>
                     <div className='database-section'>
                         <p className='sidebar-label'>Database Enabled:</p>
                         <Toggle

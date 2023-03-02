@@ -10,6 +10,7 @@
     --orange-black: #121212;
     --black: #000000;
     --border-radius: 20px;
+    --min-border-radius: 4px;
 }
 
 .width-10 {

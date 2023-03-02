@@ -78,5 +78,8 @@ INPUT TYPE PICKER
     height: 27px;
     width: 140px;
     text-align-last: center;
-    color: var(--orange-black);
+    color: var(--dark-grey);
+    background: none;
+    border-radius: var(--min-border-radius);
+
 }

@@ -70,17 +70,7 @@ class MessageCard extends Component {
                 onCreate={(type) => this.props.onCreate(this.props.index, type, {})}
             >
                 <div className='card-items'>
-                    {/* <StaticCardSection label="Message:">
-                        <textarea
-                            className='card-message'
-                            rows={2}
-                            value={this.props.message}
-                            onChange={
-                                (e) => this.props.onUpdate(this.props.index, "message", e.target.value)
-                            }
-                        />
-                    </StaticCardSection> */}
-                    <TextInputTranslate />
+                    <TextInputTranslate index={this.props.index} onUpdate={this.props.onUpdate} />
                     <CardSection 
                         label="Help:"
                         enabled={this.props.active_sections.help}

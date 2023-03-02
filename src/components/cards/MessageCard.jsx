@@ -1,5 +1,5 @@
 import CardSection from 'components/CardSection';
-import StaticCardSection from 'components/StaticCardSection';
+// import StaticCardSection from 'components/StaticCardSection';
 import SuggestionButton from 'components/SuggestionButton';
 import InputTypePicker from './sections/InputTypePicker';
 import TextInputTranslate from './sections/TextInputTranslate';
@@ -70,7 +70,7 @@ class MessageCard extends Component {
                 onCreate={(type) => this.props.onCreate(this.props.index, type, {})}
             >
                 <div className='card-items'>
-                    <TextInputTranslate index={this.props.index} onUpdate={this.props.onUpdate} />
+                    <TextInputTranslate index={this.props.index} onUpdate={this.props.onUpdate} identifier={'message'}/>
                     <CardSection 
                         label="Help:"
                         enabled={this.props.active_sections.help}

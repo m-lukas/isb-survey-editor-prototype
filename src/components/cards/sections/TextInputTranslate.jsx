@@ -5,12 +5,13 @@ export default function TextInputTranslate(props) {
     /* Takes Props: 
         - index
         - onUpdate
+        - identifier
     */
     const logChange = (e) => {
         console.log(e)
     }
-    const updateMessageTK = (value) => {
-        props.onUpdate(props.index, 'message', value)
+    const updateCardParam = (value) => {
+        props.onUpdate(props.index, props.identifier, value)
     }
     return(
         <div className="text-input-translate-container">
@@ -19,7 +20,7 @@ export default function TextInputTranslate(props) {
                 <TextInput label={'Message - Français'} onUpdate={logChange}/>
             </div>
             
-            <TextInput label={'Translation Key'} onUpdate={updateMessageTK}/>
+            <TextInput label={'Translation Key'} onUpdate={updateCardParam}/>
         </div>
     )
 }

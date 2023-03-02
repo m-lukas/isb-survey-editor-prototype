@@ -114,3 +114,47 @@ TEXT INPUT TRANSLATE
     padding-left: 0.75em;
     font-weight: 600;
 }
+
+/* 
+OPTIONAL SECTION
+=================
+*/
+.opt-section-container {
+    width: 100%;
+    height: fit-content;
+}
+
+.opt-section-label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.opt-section-grid {
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: auto 50px;
+    grid-template-rows: auto;
+}
+
+.opt-section-body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+}
+
+.opt-section-remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.opt-section-remove img {
+    width: 32px;
+    height: 32px;
+}

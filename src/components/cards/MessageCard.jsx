@@ -1,5 +1,4 @@
-import CardSection from 'components/CardSection';
-// import StaticCardSection from 'components/StaticCardSection';
+import OptionalSection from './sections/OptionalSection';
 import SuggestionButton from 'components/SuggestionButton';
 import InputTypePicker from './sections/InputTypePicker';
 import TextInputTranslate from './sections/TextInputTranslate';
@@ -71,7 +70,7 @@ class MessageCard extends Component {
             >
                 <div className='card-items'>
                     <TextInputTranslate index={this.props.index} onUpdate={this.props.onUpdate} identifier={'message'}/>
-                    <CardSection 
+                    <OptionalSection 
                         label="Help:"
                         enabled={this.props.active_sections.help}
                         onClick={() => toggleSection("help")}>
@@ -82,8 +81,8 @@ class MessageCard extends Component {
                                     (e) => this.props.onUpdate(this.props.index, "help", e.target.value)
                                 }
                             />
-                    </CardSection>
-                    <CardSection
+                    </OptionalSection>
+                    <OptionalSection
                         label="Condition (if condition is not met, step will be skipped):"
                         enabled={this.props.active_sections.condition}
                         onClick={() => toggleSection("condition")}>
@@ -113,8 +112,8 @@ class MessageCard extends Component {
                                     (e) => this.props.onUpdate(this.props.index, "condition_value", e.target.value)
                                 }
                             />
-                    </CardSection>
-                    <CardSection
+                    </OptionalSection>
+                    <OptionalSection
                         label="Compare (compares input to value):"
                         enabled={this.props.active_sections.compare}
                         onClick={() => toggleSection("compare")}>
@@ -144,8 +143,8 @@ class MessageCard extends Component {
                                     (e) => this.props.onUpdate(this.props.index, "compare_value", e.target.value)
                                 }
                             />
-                    </CardSection>
-                    <CardSection
+                    </OptionalSection>
+                    <OptionalSection
                         label="Image:"
                         enabled={this.props.active_sections.image}
                         onClick={() => toggleSection("image")}>
@@ -156,8 +155,8 @@ class MessageCard extends Component {
                                     (e) => this.props.onUpdate(this.props.index, "image", e.target.value)
                                 }
                             />
-                    </CardSection>
-                    <CardSection
+                    </OptionalSection>
+                    <OptionalSection
                         label="Database-Column:"
                         enabled={this.props.active_sections.database}
                         onClick={() => toggleSection("database")}>
@@ -168,7 +167,7 @@ class MessageCard extends Component {
                                     (e) => this.props.onUpdate(this.props.index, "db_column", e.target.value)
                                 }
                             />
-                    </CardSection>
+                    </OptionalSection>
                 </div>
                 <div className='card-add-buttons'>
                     <SuggestionButton text="Add help..." enabled={!this.props.active_sections.help} onClick={() => toggleSection("help")} />

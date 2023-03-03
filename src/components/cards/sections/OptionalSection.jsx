@@ -12,8 +12,9 @@ export default function OptionalSection(props) {
 
     return (
         <div className={containerClass}>
-            <p className="opt-section-label">{props.label}</p>
+            
             <div className="opt-section-flex">
+            <p className="opt-section-label">{props.label}</p>
                 <div className="opt-section-body">
                     {props.children}
                 </div>

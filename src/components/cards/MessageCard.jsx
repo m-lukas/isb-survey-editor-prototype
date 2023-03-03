@@ -74,13 +74,14 @@ class MessageCard extends Component {
                         label="Help:"
                         enabled={this.props.active_sections.help}
                         onClick={() => toggleSection("help")}>
-                            <input 
+                            {/* <input 
                                 className='card-help'
                                 value={this.props.help}
                                 onChange={
                                     (e) => this.props.onUpdate(this.props.index, "help", e.target.value)
                                 }
-                            />
+                            /> */}
+                            <TextInputTranslate index={this.props.index} onUpdate={this.props.onUpdate} identifier='help' />
                     </OptionalSection>
                     <OptionalSection
                         label="Condition (if condition is not met, step will be skipped):"

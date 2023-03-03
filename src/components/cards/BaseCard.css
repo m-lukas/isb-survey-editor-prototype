@@ -92,6 +92,7 @@ TEXT INPUT TRANSLATE
 .text-input-translate-container {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 .text-input-translate-container > div:first-child {
     width: 59%;
@@ -133,10 +134,15 @@ OPTIONAL SECTION
 }
 
 .opt-section-flex {
-    width: 100%;
+    width: 96%;
     height: fit-content;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--light-orange);
+    padding: 2%;
+    border-radius: var(--border-radius);
 }
 
 .opt-section-body {
@@ -145,7 +151,7 @@ OPTIONAL SECTION
     flex-wrap: wrap;
     align-items: center;
     gap: 15px;
-    width: 90%;
+    width: 100%;
 }
 
 .opt-section-remove {

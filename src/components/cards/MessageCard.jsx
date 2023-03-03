@@ -26,15 +26,15 @@ class MessageCard extends Component {
             ">midnight": "later time (incl. midnight)"
         }
 
-        const conditionOperators = {
-            "<": "less (<)",
-            "<=": "less or equal (<=)",
-            "=": "equals (=)",
-            ">=": "greater or equal (>=)",
-            ">": "greater",
-            "has-selected": "selected",
-            "has-group": "has group"
-        }
+        // const conditionOperators = {
+        //     "<": "less (<)",
+        //     "<=": "less or equal (<=)",
+        //     "=": "equals (=)",
+        //     ">=": "greater or equal (>=)",
+        //     ">": "greater",
+        //     "has-selected": "selected",
+        //     "has-group": "has group"
+        // }
         const getCopy = () => {
             return(
                 {
@@ -74,20 +74,13 @@ class MessageCard extends Component {
                         label="Help:"
                         enabled={this.props.active_sections.help}
                         onClick={() => toggleSection("help")}>
-                            {/* <input 
-                                className='card-help'
-                                value={this.props.help}
-                                onChange={
-                                    (e) => this.props.onUpdate(this.props.index, "help", e.target.value)
-                                }
-                            /> */}
                             <TextInputTranslate index={this.props.index} onUpdate={this.props.onUpdate} identifier='help' />
                     </OptionalSection>
                     <OptionalSection
                         label="Condition (if condition is not met, step will be skipped):"
                         enabled={this.props.active_sections.condition}
                         onClick={() => toggleSection("condition")}>
-                            <select 
+                            {/* <select 
                             className='action-type-selection'
                             value={this.props.condition_operator}
                             onChange={(e) => this.props.onUpdate(this.props.index, "condition_operator", e.target.value)}
@@ -112,7 +105,7 @@ class MessageCard extends Component {
                                 onChange={
                                     (e) => this.props.onUpdate(this.props.index, "condition_value", e.target.value)
                                 }
-                            />
+                            /> */}
                     </OptionalSection>
                     <OptionalSection
                         label="Compare (compares input to value):"

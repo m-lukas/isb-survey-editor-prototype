@@ -19,4 +19,13 @@ describe('<ElevatedButton />', () => {
 
         expect(getByText(/My Button/)).toBeInTheDocument()
     })
+
+    it('should call href function on click', () => {
+        const mock = jest.fn()
+        const { getByText } = makeSut({ href: mock });
+
+        fireEvent.click(getByText(/text/))
+
+        expect(mock).toHaveBeenCalled()
+    })
 })
